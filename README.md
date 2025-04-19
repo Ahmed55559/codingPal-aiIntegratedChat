@@ -1,4 +1,4 @@
-```markdown
+
 # Coding Pal Project
 
 This project is a developer assistant tool that helps users generate, plan, and execute tasks using AI. It leverages Node.js, Inquirer.js, and OpenRouter AI to provide an interactive and automated workflow.
@@ -94,6 +94,4 @@ This project is licensed under the ISC License.
 ## Author
 
 Ahmed55559
-
-```
 
