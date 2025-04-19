@@ -35,7 +35,7 @@ const aiCall = async (prompt) => {
       throw new Error(data.error?.message || "API call failed");
     }
     spinner.succeed("loading finished");
-    console.log(data);
+    // console.log(data);
     return data.choices[0]?.message.content || data.choices[0]?.message?.text;
   } catch (error) {
     spinner.fail("loading finished");

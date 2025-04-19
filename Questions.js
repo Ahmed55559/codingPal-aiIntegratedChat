@@ -59,7 +59,7 @@ function getJsonPromptFromPlan(plan) {
       - type: "cli", "writeFile (for simple logic and text files)", "editFile", "installPackages", or "generateLogic (for more complex logic and code files)"
       - required fields based on type
       - when generating a code use "generateLogic" type
-  
+      - dont put two commands in one task, each task should be a single command 
   📦 Example output: (please insure this formate)
   {
     "context": {
@@ -130,7 +130,6 @@ async function getFixConfirmation() {
       type: "confirm",
       name: "confirmationFix",
       message: "Do you want to fix something?",
-      default: false,
     },
   ]);
   return confirmation;

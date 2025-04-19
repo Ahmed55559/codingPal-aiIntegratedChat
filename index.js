@@ -1,4 +1,3 @@
-import { setTimeout } from "timers/promises";
 import { aiCall, extractJSON } from "./AiCall.js";
 import runFlow from "./Execute.js";
 import {
@@ -7,6 +6,7 @@ import {
   getJsonPromptFromPlan,
 } from "./Questions.js";
 import { setContext } from "./contextStore.js";
+import { getStructure } from "./folderAwarence.js";
 
 (async () => {
   const planPrompt = await getTaskInput();
@@ -54,7 +54,8 @@ import { setContext } from "./contextStore.js";
     console.log("🚀 Executing the plan...");
     console.log("📦 Tasks:", cleanJson?.tasks);
 
-    setContext(cleanJson?.context || {});
+    const folderStructure = getStructure(process.cwd());
+    setContext({ ...cleanJson?.context, folderStructure });
     await runFlow(cleanJson?.tasks);
   } catch (err) {
     console.error("❌ Failed to parse AI response as JSON:", err.message);
